@@ -14,7 +14,7 @@ Entry.AI_UTILIZE_BLOCK.audio = {
     descriptionKey: 'Msgs.ai_utilize_audio_description',
     isInitialized: false,
     async init() {
-        await AudioUtils.initialize();
+        await AudioUtils.initUserMedia();
         Entry.AI_UTILIZE_BLOCK.audio.isInitialized = true;
     },
 };
@@ -55,10 +55,8 @@ Entry.AI_UTILIZE_BLOCK.audio.getBlocks = function() {
             class: 'audio',
             isNotFor: ['audio'],
             async func(sprite, script) {
-                if (!AudioUtils.isInitialized) {
-                    await AudioUtils.initialize();
-                }
-                return AudioUtils.audioInputList.length > 0;
+                AudioUtils.incompatBrowserChecker();
+                return await AudioUtils.checkUserMicAvailable();
             },
             syntax: {
                 js: [],
@@ -88,9 +86,6 @@ Entry.AI_UTILIZE_BLOCK.audio.getBlocks = function() {
             class: 'audio',
             isNotFor: ['audio'],
             async func(sprite, script) {
-                if (!AudioUtils.isInitialized) {
-                    await AudioUtils.initialize();
-                }
                 if (AudioUtils.isRecording) {
                     throw new Entry.Utils.AsyncError();
                 }
@@ -126,7 +121,7 @@ Entry.AI_UTILIZE_BLOCK.audio.getBlocks = function() {
             },
             class: 'audio',
             isNotFor: ['audio'],
-            func(sprite, script) {
+            async func(sprite, script) {
                 return Entry.container.getSttValue();
             },
             syntax: {
@@ -150,10 +145,7 @@ Entry.AI_UTILIZE_BLOCK.audio.getBlocks = function() {
             },
             class: 'audio',
             isNotFor: ['audio'],
-            async func(sprite, script) {
-                if (!AudioUtils.isInitialized) {
-                    await AudioUtils.initialize();
-                }
+            func(sprite, script) {
                 return AudioUtils.currentVolume;
             },
             syntax: {
