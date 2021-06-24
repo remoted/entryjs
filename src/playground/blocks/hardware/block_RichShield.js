@@ -38,16 +38,15 @@ Entry.RichShield = {
         TONE: 5,
         PULSEIN: 6,
         ULTRASONIC: 7,
-        TIMER: 8,
+        IRREMOTE: 8,
         READ_BLUETOOTH: 9,
         WRITE_BLUETOOTH: 10,
         LCD: 11,
-        //RGBLED: 12,
+        DHT: 12,
         DCMOTOR: 13,
         OLED: 14,
         PIR: 15,
         FND: 16,
-        DHT: 12,
     },
     toneTable: {
         '0': 0,
@@ -137,6 +136,12 @@ Entry.RichShield.setLanguage = function() {
                 RichShield_OLED_event: 'OLED Display(0.96"16*08)-I2C',
                 RichShield_OLED_init: 'OLED : I2C 주소 0X3C로 설정하고, 초기화',
                 RichShield_OLED_Display_String: 'OLED : %1 행, %2 열 %3 문자(16) 출력',
+
+                RichShield_IR_event: '적외선 수신 - D2',
+                RichShield_IR_init: '적외선 수신 %1 번 : 디지털 %2 번으로 설정',
+                RichShield_IR_Update: '적외선 %1 번 : 수신 업데이트',
+                RichShield_IR_Cond: '적외선 %1 번 : 자료가 수신되면?',
+                RichShield_IR_Read: '적외선 %1 번 : 자료읽기',
                 /*
                 chocopi_control_button: '%1 컨트롤 %2번을 누름',
                 chocopi_control_event: '%1 %2 컨트롤 %3을 %4',
@@ -248,6 +253,12 @@ Entry.RichShield.setLanguage = function() {
                 RichShield_OLED_event: 'OLED Display(0.96"16*08)-I2C',
                 RichShield_OLED_init: 'OLED : I2C adress 0X3C set, initialize',
                 RichShield_OLED_Display_String: 'OLED : %1 Row, %2 Col %3 String(16) Display',
+
+                RichShield_IR_event: 'IR Receiv - D2',
+                RichShield_IR_init: 'IR Receiv %1 : Digital %2 Set',
+                RichShield_IR_Update: 'IR %1 : recv update',
+                RichShield_IR_Cond: 'IR %1 : Do data setting?',
+                RichShield_IR_Read: 'IR %1 : Data read',
                 /*
                 chocopi_control_button: '%1 controller %2 is pressed',
                 chocopi_control_event: '%1 When %2 controller %3 is %4',
@@ -332,6 +343,13 @@ Entry.RichShield.blockMenuBlocks = [
     'RichShield_OLED_event',
     'RichShield_OLED_init',
     'RichShield_OLED_Display_String',
+
+    'RichShield_IR_event',
+    'RichShield_IR_init',
+    'RichShield_IR_Update',
+    'RichShield_IR_Cond',
+    'RichShield_IR_Read',
+
     //'RichShield_get_number_sensor_value',
     /*
     'RichShield_get_number_sensor_value',
@@ -521,7 +539,7 @@ Entry.RichShield.getBlocks = function() {
                 if (Entry.hw.sendQueue.SET[port]) {
                     return Entry.hw.sendQueue.SET[port].data;
                 } else {
-                    Entry.hw.sendQueue.GET[Entry.Hasseam.sensorTypes.DIGITAL] = {
+                    Entry.hw.sendQueue.GET[Entry.RichShield.sensorTypes.DIGITAL] = {
                         port,
                         data: opr,
                         time: new Date().getTime(),
@@ -1884,6 +1902,193 @@ Entry.RichShield.getBlocks = function() {
                 }
             },
             syntax: { js: [], py: ['RichShield_OLED_Display_String(%1, %2, %3)'] },
+        },
+        RichShield_IR_event: {
+            color: EntryStatic.colorSet.block.default.HARDWARE,
+            outerLine: EntryStatic.colorSet.block.darken.HARDWARE,
+            fontColor: '#fff',
+            skeleton: 'basic_event',
+            statements: [],
+            params: [
+                {
+                    type: 'Indicator',
+                    img: 'block_icon/start_icon_hardware.svg',
+                    size: 14,
+                    position: { x: 0, y: -2 },
+                },
+            ],
+            def: { params: [], type: 'RichShield_IR_event' },
+            class: 'RichShield_IR',
+            isNotFor: ['RichShield'],
+        },
+        RichShield_IR_init: {
+            color: EntryStatic.colorSet.block.default.HARDWARE,
+            outerLine: EntryStatic.colorSet.block.darken.HARDWARE,
+            fontColor: '#fff',
+            skeleton: 'basic',
+            statements: [],
+            params: [
+                {
+                    type: 'Block',
+                    value: 1,
+                    fontSize: 11,
+                    bgColor: EntryStatic.colorSet.block.darken.HARDWARE,
+                    arrowColor: EntryStatic.colorSet.arrow.default.HARDWARE,
+                },
+                {
+                    type: 'Dropdown',
+                    options: [['2', 2]],
+                    value: 2,
+                    fontSize: 11,
+                    bgColor: EntryStatic.colorSet.block.darken.HARDWARE,
+                    arrowColor: EntryStatic.colorSet.arrow.default.HARDWARE,
+                },
+            ],
+            def: { params: [], type: 'RichShield_IR_init' },
+            paramsKeyMap: {},
+            class: 'RichShield_IR',
+            isNotFor: ['RichShield'],
+            func(sprite, script) {
+                const device = 1;
+                // IR Block Added By Remoted 2021-03-28
+                if (!Entry.hw.sendQueue.SET) {
+                    Entry.hw.sendQueue.SET = {};
+                }
+
+                // IR type data protocol defined
+                Entry.hw.sendQueue.SET[device] = {
+                    type: Entry.RichShield.sensorTypes.IRREMOTE,
+                    data: {
+                        ir_block_index: 0,
+                    },
+                    time: new Date().getTime(),
+                };
+
+                return script.callReturn();
+            },
+            syntax: { js: [], py: ['RichShield_IR_init(pinNumber)'] },
+        },
+        RichShield_IR_Update: {
+            color: EntryStatic.colorSet.block.default.HARDWARE,
+            outerLine: EntryStatic.colorSet.block.darken.HARDWARE,
+            fontColor: '#fff',
+            skeleton: 'basic',
+            statements: [],
+            params: [
+                {
+                    type: 'Block',
+                    value: 1,
+                    fontSize: 11,
+                    bgColor: EntryStatic.colorSet.block.darken.HARDWARE,
+                    arrowColor: EntryStatic.colorSet.arrow.default.HARDWARE,
+                },
+            ],
+            def: { params: [], type: 'RichShield_IR_Update' },
+            paramsKeyMap: {},
+            class: 'RichShield_IR',
+            isNotFor: ['RichShield'],
+            func(sprite, script) {
+                const device = 1;
+                // IR Block Added By Remoted 2021-03-28
+                if (!Entry.hw.sendQueue.SET) {
+                    Entry.hw.sendQueue.SET = {};
+                }
+
+                // IR type data protocol defined
+                Entry.hw.sendQueue.SET[device] = {
+                    type: Entry.RichShield.sensorTypes.IRREMOTE,
+                    data: {
+                        ir_block_index: 1,
+                    },
+                    time: new Date().getTime(),
+                };
+
+                return script.callReturn();
+            },
+            syntax: { js: [], py: ['RichShield_IR_Update(pinNumber)'] },
+        },
+        RichShield_IR_Cond: {
+            color: EntryStatic.colorSet.block.default.HARDWARE,
+            outerLine: EntryStatic.colorSet.block.darken.HARDWARE,
+            fontColor: '#fff',
+            skeleton: 'basic_boolean_field',
+            statements: [],
+            params: [
+                {
+                    type: 'Block',
+                    value: 1,
+                    fontSize: 11,
+                    bgColor: EntryStatic.colorSet.block.darken.HARDWARE,
+                    arrowColor: EntryStatic.colorSet.arrow.default.HARDWARE,
+                },
+            ],
+            def: { params: [], type: 'RichShield_IR_Cond' },
+            paramsKeyMap: {
+                device: 0,
+            },
+            class: 'RichShield_IR',
+            isNotFor: ['RichShield'],
+            func(sprite, script) {
+                const device = script.getNumberValue('PORT');
+
+                if (!Entry.hw.sendQueue.SET) {
+                    Entry.hw.sendQueue.SET = {};
+                }
+
+                // device -> Entry.RichShield.sensorTypes.IRREMOTE
+                Entry.hw.sendQueue.SET[Entry.RichShield.sensorTypes.IRREMOTE] = {
+                    type: Entry.RichShield.sensorTypes.IRREMOTE,
+                    data: {
+                        ir_block_index: 2,
+                    },
+                    time: new Date().getTime(),
+                };
+
+                return script.callReturn();
+            },
+            syntax: { js: [], py: ['RichShield_IR_Cond(%1)'] },
+        },
+        RichShield_IR_Read: {
+            color: EntryStatic.colorSet.block.default.HARDWARE,
+            outerLine: EntryStatic.colorSet.block.darken.HARDWARE,
+            fontColor: '#fff',
+            skeleton: 'basic_string_field',
+            statements: [],
+            params: [
+                {
+                    type: 'Block',
+                    value: 1,
+                    fontSize: 11,
+                    bgColor: EntryStatic.colorSet.block.darken.HARDWARE,
+                    arrowColor: EntryStatic.colorSet.arrow.default.HARDWARE,
+                },
+            ],
+            def: { params: [], type: 'RichShield_IR_Read' },
+            paramsKeyMap: { device: 0 },
+            class: 'RichShield_IR',
+            isNotFor: ['RichShield'],
+            func(sprite, script) {
+                // type이 Block의 경우에는 Field가 아닌 Value로 취급해서 가져 옵니다.
+                // 일반적으로는 getValue로 값을 가져오고
+                // 명시적으로 숫자형으로 가져오고 싶을때에는 getNumberValue를 사용합니다.
+                const device = script.getNumberValue('device', script);
+                const port = 2;
+
+                if (!Entry.hw.sendQueue.GET) {
+                    Entry.hw.sendQueue.GET = {};
+                }
+
+                // DHT Temp-Reader type data protocol defined
+                Entry.hw.sendQueue.GET[Entry.RichShield.sensorTypes.IRREMOTE] = {
+                    port,
+                    time: new Date().getTime(),
+                };
+
+                //console.log((Entry.hw.portData.DHT || 0).toFixed(1));
+
+                return (Entry.hw.portData.IRREMOTE || 0).toFixed(0);
+            },
+            syntax: { js: [], py: ['RichShield_IR_Read(%1)'] },
         },
     };
 };

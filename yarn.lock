@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+<<<<<<< refs/remotes/upstream/master
+=======
+"@babel/code-frame@7.12.11":
+  version "7.12.11"
+  resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
+  integrity sha512-Zt1yodBx1UcyiePMSkWnU4hPqhwq7hGi2nFL1LeA3EUl+q2LQx16MISgJ0+z7dnmgvP9QtIleuETGOiOH1RcIw==
+  dependencies:
+    "@babel/highlight" "^7.10.4"
+
+>>>>>>> local
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.11", "@babel/code-frame@^7.12.13":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.13.tgz#dcfc826beef65e75c50e21d3837d7d95798dd658"
@@ -61,12 +71,21 @@
     jsesc "^2.5.1"
     source-map "^0.5.0"
 
+<<<<<<< refs/remotes/upstream/master
 "@babel/generator@^7.13.9":
   version "7.13.9"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.13.9.tgz#3a7aa96f9efb8e2be42d38d80e2ceb4c64d8de39"
   integrity sha512-mHOOmY0Axl/JCTkxTU6Lf5sWOg/v8nUa+Xkt4zMTftX0wqmb6Sh7J8gvcehBw7q0AhrhAR+FDacKjCZ2X8K+Sw==
   dependencies:
     "@babel/types" "^7.13.0"
+=======
+"@babel/generator@^7.13.16", "@babel/generator@^7.13.9":
+  version "7.13.16"
+  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.13.16.tgz#0befc287031a201d84cdfc173b46b320ae472d14"
+  integrity sha512-grBBR75UnKOcUWMp8WoDxNsWCFl//XCK6HWTrBQKTr5SV9f5g0pNOjdyzi/DTBv12S9GnYPInIXQBTky7OXEMg==
+  dependencies:
+    "@babel/types" "^7.13.16"
+>>>>>>> local
     jsesc "^2.5.1"
     source-map "^0.5.0"
 
@@ -288,10 +307,17 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.12.11.tgz#9ce3595bcd74bc5c466905e86c535b8b25011e79"
   integrity sha512-N3UxG+uuF4CMYoNj8AhnbAcJF0PiuJ9KHuy1lQmkYsxTer/MAH9UBNHsBoAX/4s6NvlDD047No8mYVGGzLL4hg==
 
+<<<<<<< refs/remotes/upstream/master
 "@babel/parser@^7.12.13", "@babel/parser@^7.13.10", "@babel/parser@^7.13.15":
   version "7.13.15"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.13.15.tgz#8e66775fb523599acb6a289e12929fa5ab0954d8"
   integrity sha512-b9COtcAlVEQljy/9fbcMHpG+UIW9ReF+gpaxDHTlZd0c6/UU9ng8zdySAW9sRTzpvcdCHn6bUcbuYUgGzLAWVQ==
+=======
+"@babel/parser@^7.12.13", "@babel/parser@^7.13.10", "@babel/parser@^7.13.16":
+  version "7.13.16"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.13.16.tgz#0f18179b0448e6939b1f3f5c4c355a3a9bcdfd37"
+  integrity sha512-6bAg36mCwuqLO0hbR+z7PHuqWiCeP7Dzg73OpQwsAB1Eb8HnGEz5xYBzCfbu+YjoaJsJs+qheDxVAuqbt3ILEw==
+>>>>>>> local
 
 "@babel/plugin-proposal-async-generator-functions@^7.13.8":
   version "7.13.8"
@@ -879,6 +905,7 @@
     lodash "^4.17.19"
 
 "@babel/traverse@^7.13.0":
+<<<<<<< refs/remotes/upstream/master
   version "7.13.15"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.13.15.tgz#c38bf7679334ddd4028e8e1f7b3aa5019f0dada7"
   integrity sha512-/mpZMNvj6bce59Qzl09fHEs8Bt8NnpEDQYleHUPZQ3wXUMvXi+HJPLars68oAbmp839fGoOkv2pSL2z9ajCIaQ==
@@ -889,6 +916,18 @@
     "@babel/helper-split-export-declaration" "^7.12.13"
     "@babel/parser" "^7.13.15"
     "@babel/types" "^7.13.14"
+=======
+  version "7.13.17"
+  resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.13.17.tgz#c85415e0c7d50ac053d758baec98b28b2ecfeea3"
+  integrity sha512-BMnZn0R+X6ayqm3C3To7o1j7Q020gWdqdyP50KEoVqaCO2c/Im7sYZSmVgvefp8TTMQ+9CtwuBp0Z1CZ8V3Pvg==
+  dependencies:
+    "@babel/code-frame" "^7.12.13"
+    "@babel/generator" "^7.13.16"
+    "@babel/helper-function-name" "^7.12.13"
+    "@babel/helper-split-export-declaration" "^7.12.13"
+    "@babel/parser" "^7.13.16"
+    "@babel/types" "^7.13.17"
+>>>>>>> local
     debug "^4.1.0"
     globals "^11.1.0"
 
@@ -901,6 +940,7 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+<<<<<<< refs/remotes/upstream/master
 "@babel/types@^7.12.11":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.14.5.tgz#3bb997ba829a2104cedb20689c4a5b8121d383ff"
@@ -916,6 +956,14 @@
   dependencies:
     "@babel/helper-validator-identifier" "^7.12.11"
     lodash "^4.17.19"
+=======
+"@babel/types@^7.12.13", "@babel/types@^7.13.0", "@babel/types@^7.13.16", "@babel/types@^7.13.17":
+  version "7.13.17"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.13.17.tgz#48010a115c9fba7588b4437dd68c9469012b38b4"
+  integrity sha512-RawydLgxbOPDlTLJNtoIypwdmAy//uQIzlKt2+iBiJaRlVuI6QLUxVAyWGNfOzp8Yu4L4lLIacoCyTNtpb4wiA==
+  dependencies:
+    "@babel/helper-validator-identifier" "^7.12.11"
+>>>>>>> local
     to-fast-properties "^2.0.0"
 
 "@cnakazawa/watch@^1.0.3":
@@ -1294,6 +1342,7 @@
   version "5.3.7"
   resolved "https://registry.yarnpkg.com/@pixi/particles/-/particles-5.3.7.tgz#9f0500b818f20af8e9338fee24c1c33530dfa925"
   integrity sha512-mEnBljvBVbKuUJVZ0oH9dP/k7qsHEHUlvfBQgLOSkd6viHlx3PoSPKOYm35+I6fAylkV0Xm9+j5v/IESuip2RQ==
+<<<<<<< refs/remotes/upstream/master
   dependencies:
     "@pixi/constants" "5.3.7"
     "@pixi/core" "5.3.7"
@@ -1306,6 +1355,20 @@
   resolved "https://registry.yarnpkg.com/@pixi/polyfill/-/polyfill-5.3.7.tgz#eb43ef1eefc7967bf8d44f704677c19adfdc539c"
   integrity sha512-qU23xdb/e4Qvze0TWVy4fNZ0nlABIEZmuLu5nI9SpgfIYtjd2tZo7ngCXU5mZHxW1/xvkAMJEHCsSszotzF9xQ==
   dependencies:
+=======
+  dependencies:
+    "@pixi/constants" "5.3.7"
+    "@pixi/core" "5.3.7"
+    "@pixi/display" "5.3.7"
+    "@pixi/math" "5.3.7"
+    "@pixi/utils" "5.3.7"
+
+"@pixi/polyfill@5.3.7":
+  version "5.3.7"
+  resolved "https://registry.yarnpkg.com/@pixi/polyfill/-/polyfill-5.3.7.tgz#eb43ef1eefc7967bf8d44f704677c19adfdc539c"
+  integrity sha512-qU23xdb/e4Qvze0TWVy4fNZ0nlABIEZmuLu5nI9SpgfIYtjd2tZo7ngCXU5mZHxW1/xvkAMJEHCsSszotzF9xQ==
+  dependencies:
+>>>>>>> local
     es6-promise-polyfill "^1.2.0"
     object-assign "^4.1.1"
 
@@ -1358,6 +1421,7 @@
   version "5.3.7"
   resolved "https://registry.yarnpkg.com/@pixi/sprite/-/sprite-5.3.7.tgz#c6edf3d4a9928868696b62e35a60ded27d167058"
   integrity sha512-Bjl+NOOvigEzUsm1cDr1KmBUpPSWO8pDXpUPTi+v2N75gwRfTycmj5f2TU0QmMW3Gc6sv0CB0AkL7dkMPwPb8g==
+<<<<<<< refs/remotes/upstream/master
   dependencies:
     "@pixi/constants" "5.3.7"
     "@pixi/core" "5.3.7"
@@ -1390,6 +1454,40 @@
     "@pixi/text" "5.3.7"
     "@pixi/utils" "5.3.7"
 
+=======
+  dependencies:
+    "@pixi/constants" "5.3.7"
+    "@pixi/core" "5.3.7"
+    "@pixi/display" "5.3.7"
+    "@pixi/math" "5.3.7"
+    "@pixi/settings" "5.3.7"
+    "@pixi/utils" "5.3.7"
+
+"@pixi/spritesheet@5.3.7":
+  version "5.3.7"
+  resolved "https://registry.yarnpkg.com/@pixi/spritesheet/-/spritesheet-5.3.7.tgz#826b84c8220ca41c3eba201f453d42394d4da562"
+  integrity sha512-K1Befbrq3LDbFtnLmbk54QQ/YRk2Mgd+2iOkZx5KsS2pTh1va/GM9FbpO9aZgsEu8Eq76QPxyR8nRqygyMRSuQ==
+  dependencies:
+    "@pixi/core" "5.3.7"
+    "@pixi/loaders" "5.3.7"
+    "@pixi/math" "5.3.7"
+    "@pixi/utils" "5.3.7"
+
+"@pixi/text-bitmap@5.3.7":
+  version "5.3.7"
+  resolved "https://registry.yarnpkg.com/@pixi/text-bitmap/-/text-bitmap-5.3.7.tgz#736b489424c6e9c26c2907356e2d70e1ae2cb292"
+  integrity sha512-LWXgxyMgBAldHA6Swx0irAISCMEyDEcZV7YxBoBpSDnV8ybtZP4fSgtj6vlpnrttKcnXFEcGokOuC3vSdEs39g==
+  dependencies:
+    "@pixi/core" "5.3.7"
+    "@pixi/display" "5.3.7"
+    "@pixi/loaders" "5.3.7"
+    "@pixi/math" "5.3.7"
+    "@pixi/mesh" "5.3.7"
+    "@pixi/settings" "5.3.7"
+    "@pixi/text" "5.3.7"
+    "@pixi/utils" "5.3.7"
+
+>>>>>>> local
 "@pixi/text@5.3.7":
   version "5.3.7"
   resolved "https://registry.yarnpkg.com/@pixi/text/-/text-5.3.7.tgz#cb71b2576bdc1f66fb79977d281f9575dd06d3d5"
@@ -2586,6 +2684,7 @@ browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.14.5:
     escalade "^3.1.1"
     node-releases "^1.1.69"
 
+<<<<<<< refs/remotes/upstream/master
 browserslist@^4.16.3:
   version "4.16.4"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.16.4.tgz#7ebf913487f40caf4637b892b268069951c35d58"
@@ -2594,6 +2693,16 @@ browserslist@^4.16.3:
     caniuse-lite "^1.0.30001208"
     colorette "^1.2.2"
     electron-to-chromium "^1.3.712"
+=======
+browserslist@^4.16.4:
+  version "4.16.5"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.16.5.tgz#952825440bca8913c62d0021334cbe928ef062ae"
+  integrity sha512-C2HAjrM1AI/djrpAUU/tr4pml1DqLIzJKSLDBXBrNErl9ZCCTXdhwxdJjYc16953+mBWf7Lw+uUJgpgb8cN71A==
+  dependencies:
+    caniuse-lite "^1.0.30001214"
+    colorette "^1.2.2"
+    electron-to-chromium "^1.3.719"
+>>>>>>> local
     escalade "^3.1.1"
     node-releases "^1.1.71"
 
@@ -2791,10 +2900,17 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001173:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001173.tgz#3c47bbe3cd6d7a9eda7f50ac016d158005569f56"
   integrity sha512-R3aqmjrICdGCTAnSXtNyvWYMK3YtV5jwudbq0T7nN9k4kmE4CBuwPqyJ+KBzepSTh0huivV2gLbSMEzTTmfeYw==
 
+<<<<<<< refs/remotes/upstream/master
 caniuse-lite@^1.0.30001208:
   version "1.0.30001208"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001208.tgz#a999014a35cebd4f98c405930a057a0d75352eb9"
   integrity sha512-OE5UE4+nBOro8Dyvv0lfx+SRtfVIOM9uhKqFmJeUbGriqhhStgp1A0OyBpgy3OUF8AhYCT+PVwPC1gMl2ZcQMA==
+=======
+caniuse-lite@^1.0.30001214:
+  version "1.0.30001218"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001218.tgz#9b44f6ed16f875db6373e2debd4d14a07359002f"
+  integrity sha512-0ASydOWSy3bB88FbDpJSTt+PfDwnMqrym3yRZfqG8EXSQ06OZhF+q5wgYP/EN+jJMERItNcDQUqMyNjzZ+r5+Q==
+>>>>>>> local
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -3212,11 +3328,19 @@ copy-descriptor@^0.1.0:
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
 core-js-compat@^3.8.1, core-js-compat@^3.9.0:
+<<<<<<< refs/remotes/upstream/master
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.10.1.tgz#62183a3a77ceeffcc420d907a3e6fc67d9b27f1c"
   integrity sha512-ZHQTdTPkqvw2CeHiZC970NNJcnwzT6YIueDMASKt+p3WbZsLXOcoD392SkcWhkC0wBBHhlfhqGKKsNCQUozYtg==
   dependencies:
     browserslist "^4.16.3"
+=======
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.11.0.tgz#635683f43480a0b41e3f6be3b1c648dadb8b4390"
+  integrity sha512-3wsN9YZJohOSDCjVB0GequOyHax8zFiogSX3XWLE28M1Ew7dTU57tgHjIylSBKSIouwmLBp3g61sKMz/q3xEGA==
+  dependencies:
+    browserslist "^4.16.4"
+>>>>>>> local
     semver "7.0.0"
 
 core-js@^2.6.2:
@@ -3840,10 +3964,17 @@ electron-to-chromium@^1.3.634:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.634.tgz#82ea400f520f739c4f6ff00c1f7524827a917d25"
   integrity sha512-QPrWNYeE/A0xRvl/QP3E0nkaEvYUvH3gM04ZWYtIa6QlSpEetRlRI1xvQ7hiMIySHHEV+mwDSX8Kj4YZY6ZQAw==
 
+<<<<<<< refs/remotes/upstream/master
 electron-to-chromium@^1.3.712:
   version "1.3.715"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.715.tgz#8fd002e79c13d711133565600f40cd80abfe5d55"
   integrity sha512-VCWxo9RqTYhcCsHtG+l0TEOS6H5QmO1JyVCQB9nv8fllmAzj1VcCYH3qBCXP75/En6FeoepefnogLPE+5W7OiQ==
+=======
+electron-to-chromium@^1.3.719:
+  version "1.3.722"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.722.tgz#621657f79e7f65402e71aa3403bc941f3a4af0a0"
+  integrity sha512-aAsc906l0RBsVTsGTK+KirVfey9eNtxyejdkbNzkISGxb7AFna3Kf0qvsp8tMttzBt9Bz3HddtYQ+++/PZtRYA==
+>>>>>>> local
 
 elliptic@^6.5.3:
   version "6.5.4"
@@ -6617,6 +6748,11 @@ lodash.uniq@^4.5.0:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@2.2.0:
   version "2.2.0"
